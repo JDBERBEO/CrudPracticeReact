@@ -5,14 +5,13 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 export const TaskView = ({tas}) => {
     return (
-        <div>
+        <div>         
             <ListGroup>
                 <ListGroup.Item>{tas.content}
                 <Button variant="success">Edit</Button>
                 <Button variant="danger">Delete</Button>
                 </ListGroup.Item>
             </ListGroup>
-            
         </div>
     )
 }

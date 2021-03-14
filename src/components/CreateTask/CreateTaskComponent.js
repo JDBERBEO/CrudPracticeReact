@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { Button, Form } from 'react-bootstrap'
 import {TaskContext} from '../../context/TaskContext'
+import { CreateTaskView } from './CreateTaskView'
 
 export const CreateTaskComponent = () => {
 
@@ -25,22 +26,13 @@ export const CreateTaskComponent = () => {
         }
         
         console.log('tasks', task)
-     
-
-      
 
     return (
         <div>
-
-        <Form>
-        <Form.Group controlId="formBasicEmail">
-            <Form.Label>Crea la tarea:</Form.Label>
-            <Form.Control type="text" placeholder="Enter task"  onChange={handleOnChange}/>
-        </Form.Group>
-        <Button variant="primary" type="submit" onClick={handleOnClick}>
-            Crear
-        </Button>
-        </Form>
+            <CreateTaskView 
+            handleOnChange={handleOnChange}
+            handleOnClick={handleOnClick} />
+        
             
         </div>
     )
