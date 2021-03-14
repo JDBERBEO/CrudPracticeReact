@@ -1,10 +1,14 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { Button, Form } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
+
 import {TaskContext} from '../../context/TaskContext'
 import { CreateTaskView } from './CreateTaskView'
 
-export const CreateTaskComponent = () => {
+ 
 
+export const CreateTaskComponent = ({ history }) => {
+    
+ 
     const {task, setTask} = useContext(TaskContext)
     
     
@@ -19,10 +23,12 @@ export const CreateTaskComponent = () => {
        
     const handleOnClick = (event) => {
             event.preventDefault()
-            task.push()
+            task.push(local)
             console.log('esto es local', local)
-            setTask([...task, local])
+            setTask([...task])
+            localStorage.setItem('tasks', task.length !== 0 ? JSON.stringify(task) : [])
             setLocal('')
+            history.push('/')
         }
         
         console.log('tasks', task)
@@ -31,9 +37,8 @@ export const CreateTaskComponent = () => {
         <div>
             <CreateTaskView 
             handleOnChange={handleOnChange}
-            handleOnClick={handleOnClick} />
-        
-            
+            handleOnClick={handleOnClick} 
+            value={task}/>
         </div>
     )
 }

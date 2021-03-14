@@ -1,11 +1,10 @@
 import React from 'react'
-import { CreateTaskView } from '../components/CreateTask/CreateTaskView'
+import { CreateTaskComponent } from '../components/CreateTask/CreateTaskComponent'
 
-export const Addpage = () => {
+export const Addpage = ({history}) => {
     return (
         <div>
-            
-            <CreateTaskView />
+            <CreateTaskComponent history={history}/>
         </div>
     )
 }

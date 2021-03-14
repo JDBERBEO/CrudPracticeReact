@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import {TaskContext} from '../context/TaskContext'
 import { TaskView } from '../components/TaskView'
 import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 
 export const TaskComponent = () => {
@@ -10,7 +11,9 @@ export const TaskComponent = () => {
 
     return (
         <div>
-            <Button variant="primary" size="lg" block href='http://localhost:3000/add'>Create task</Button>
+            <Link to="/add">
+            <Button variant="primary" size="lg" block>Create task</Button>
+            </Link>
             {task.map((tas) => (
                 <TaskView 
                 key={tas.id}
