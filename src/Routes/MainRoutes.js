@@ -4,6 +4,7 @@ import {  BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { TaskComponent } from '../components/TaskComponent'
 
 import { Addpage } from '../Pages/Addpage'
+import { Editpage } from '../Pages/Editpage'
 
 export const MainRoutes = () => {
     return (
@@ -11,7 +12,7 @@ export const MainRoutes = () => {
             <Router>
                 <Switch>
                     <Route path="/add" component={Addpage}/>
-                    {/* <Route path="/edit" component={}/> */}
+                    <Route path="/edit/:id" component={Editpage}/>
                     <Route path="/" component={TaskComponent}/>
                 </Switch>
             </Router>
